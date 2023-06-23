@@ -1,0 +1,301 @@
+%-------------------------
+% Cv in Latex
+% Author : Mostafa Abdelgawad
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{soul} % for the \hl command
+% Flexible tables
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{enumitem}
+
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{0pt}\scshape\raggedright\large
+}{}{0pt}{}[\color{black}\titlerule \vspace{0pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\CvItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\CvSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\CvSubheadingWithoutTitle}[3]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \multirow{2}{*}{\textbf{#1}} & #2 \\
+     & \textit{\small #3} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\CvSubSubheadingWithoutTitleAndDate}[2]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    {\textbf{#1}} & #2 \\
+    \end{tabular*}\vspace{-10pt}
+}
+
+\newcommand{\CvSubItem}[2]{\CvItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\CvSubHeadingListStart}{\begin{itemize}[leftmargin=*,topsep = 0pt]}
+\newcommand{\List}{\begin{itemize}[topsep = 0pt, itemsep = -1pt]}
+\newcommand{\CvSubHeadingListEnd}{\end{itemize}}
+\newcommand{\EndList}{\end{itemize}}
+\newcommand{\CvItemListStart}{\begin{itemize}}
+\newcommand{\CvItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%--------------------------------------------------------------------------------
+%                            Header Setup and Printing                          -
+%--------------------------------------------------------------------------------
+
+% Address
+\makeatletter
+
+\newcommand\address[1]{\def\@address{#1}}
+\address{}
+
+\newcommand\printaddress{
+	\small{\@address}
+}
+
+% Webpage
+\makeatletter
+
+\newcommand\linkedin[1]{\def\@linkedin{#1}}
+\linkedin{}
+
+\newcommand\printlinkedin{
+	\small{\@linkedin}
+}
+
+\makeatother
+
+% Name
+\makeatletter
+
+\newcommand\name[1]{\def\@name{#1}}
+\name{}
+
+\newcommand\printname{
+	\textbf{\LARGE{\textsc{\@name}}}
+}
+
+\makeatother
+
+% Contacts
+\makeatletter
+
+\newcommand\contacts[1]{\def\@contacts{#1}}
+\contacts{}
+
+\newcommand\printcontacts{
+	\small{\@contacts}
+}
+
+\makeatother
+
+% Github
+\makeatletter
+
+\newcommand\github[1]{\def\@github{#1}}
+\contacts{}
+
+\newcommand\printgithub{
+	\small{\@github}
+}
+
+\makeatother
+
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Set applicant's personal data for header
+\name{Mostafa Abdelgawad}
+\address{166 E Horus, Pyramids' Gardens \linebreak Giza, Egypt 12556}
+\linkedin{\href{https://www.linkedin.com/in/mostafaelgawad/}{linkedin.com/in/mostafaelgawad}}
+\contacts{Mobile : +201129216108 \linebreak \href{mailto:elgawad.mostafa@gmail.com}{elgawad.mostafa@gmail.com} }
+\github{\href{https://github.com/MostafaElgawad}{github.com/MostafaElgawad}}
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{center}
+    \begin{tabu} to 1\textwidth {X[l,m] X[1,c,m] X[r,m] }
+        \printaddress \printlinkedin & \printname & \printcontacts
+        \printgithub \\
+    \end{tabu}
+\end{center}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \CvSubHeadingListStart
+    \CvSubheading
+      {\href{https://eng.cu.edu.eg/en/}{Cairo University, Faculty of Engineering}}{Giza, Egypt}
+      {Bachelor of Engineering in Communications and Computer;  GPA: 3.31}{Sep. 2015 -- May. 2020}
+  \CvSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------------
+\section{Work Experience}
+  \CvSubHeadingListStart
+
+    \CvSubheading
+      {APTIV (EJAD BOT)}{Free Zone, Naser City}
+      {Embedded Systems Software Engineer}{Oct 2022 - Present}
+      \CvItemListStart
+        \CvItem{MPIC- Multi-Purpose Interior Camera}
+          {\List
+          \item Developed APIs used by testing tool "Test Commander" in Python.
+          \item Tested the software in level of SWE.5 "Integration" \& SWE.6 "Qualification" testing following ASPICE model.
+          \EndList}
+      \CvItemListEnd
+
+    \CvSubheading
+      {Cairo University, Faculty of Engineering}{Giza, Egypt}
+      {Teaching assistant}{Oct 2021 - Jun 2022}
+      \CvItemListStart
+        \CvItem{Programming Techniques course}
+          {\List
+            \item Co-instructed C++ basics and function versus object-oriented programming.
+            \item Evaluated students' assignments and quizzes.
+            \EndList}
+        \CvItem{Data Structures \& Algorithms course}
+          {\List
+            \item Co-instructed data structures representations in storage media and memory allocation.
+            \item Co-instructed searching and sorting algorithms.
+            \EndList}
+        \CvItem{Advanced Programming Techniques course}
+          {\List
+            \item Co-instructed Programming Techniques in Network and various Media Types (e.g multithreaded programming, Internet programming).
+            \EndList}
+      \CvItemListEnd
+
+    \CvSubheading
+      {Advansys ESC}{Free Zone, Naser City}
+      {RPA developer intern}{Sep 2020 - Mar 2021}
+      \CvItemListStart
+      \CvItem{Bupa}
+      {Supported in the maintanace of deployed robots using UiPath, Blue Prism, and Automation Anywhere framworks.}
+      \CvItemListEnd   
+  \CvSubHeadingListEnd
+
+
+%-----------PROJECTS-----------------
+\section{Academic Projects}
+  \CvSubHeadingListStart
+    \CvSubItem{\href{https://www.youtube.com/watch?v=Qrf6ohhCA0c&feature=youtu.be}{Lipify - Lip Reading Application, Graduation Project}}
+        {\List
+            \item Developed a system that can predict the user's words based on selected categories and using only lips movements.
+            \item Built a lips recognition module using image processing in python.
+            \item Implemented a feature extraction module using DCT and LDA.
+        \EndList}
+    \CvSubItem{\href{https://github.com/amrkh97/Arabic-OCR-Using-PythonURL}{Arabic Optical Character Recognizer, Pattern Recognition Course}}
+        {\List
+            \item Built an offline OCR system using TensorFlow; depending only on classical approaches to extract features.
+        \EndList}
+    \CvSubItem{\href{https://github.com/amrkh97/FifaPredictor-BigData}{FIFA Analyzer, Big Data Course}}
+        {\List
+            \item Provided meaningful insights and analysis of clubs, age distribution among top valued clubs, and superstars skills.
+            \item Built a linear Regression Model using R to predict player’s market value.
+            \item Built a Polynomial and Linear Regression Models using R to predict player’s wage.
+        \EndList}
+    \CvSubItem{\href{https://github.com/AhmedSalemElhady/Scrabble-Game.ai}{Scrabble Engine, Machine Intelligence Course}}
+        {\List
+            \item Developed an intelligent agent that plays the scrabble board game.
+            \item Integreted and tested the Monte-Carlo Module in the system.
+        \EndList}
+    \CvSubItem{\href{https://github.com/ahmedHusseinF/emojicode}{EmojiCode, Compilers Course}}
+        {\List
+            \item Implemented a lexer, parser, and compiler for a language of emojis using Lex and YACC.
+        \EndList}
+  \CvSubHeadingListEnd
+
+%
+%---------Additional Experience and Awards--------
+%
+\section{Additional Experience and Awards}
+    \CvSubHeadingListStart
+        \CvSubheadingWithoutTitle
+        {CURT Cairo University Racing Team}{Cairo University}
+        {Sep 2019 - Jun 2020 }
+            {\begin{itemize}[topsep = -5pt, itemsep = -2pt]
+                \item Participated in Formula Students Competition 2020.
+                \item Built the main dashboard and failure system.
+            \end{itemize}}
+    \CvSubheadingWithoutTitle
+        {Embedded Systems Diploma}{Eng. Mohamed Tarek}
+        {Sep 2019 - Jun 2020 }
+            \begin{itemize}[topsep = -5pt, itemsep = -2pt]
+                \item Studied Embedded C, AVR Micro-controllers Interfacing, and RTOS.
+                \item Built a door locking security system using TivaC.
+                \begin{itemize}[topsep = -1pt]
+                    \item Implemented a Security System consists of two ECU’s. HMI which is responsible for interfacing with 
+                    the user and control ECU which is responsible for the system operations and control.
+                \end{itemize} 
+            \end{itemize}
+    \CvSubSubheadingWithoutTitleAndDate
+    {B1 German Certificate} {Goethe Ins.}
+    \CvSubSubheadingWithoutTitleAndDate
+    {C1 IELTS Certificate} { IDP Education}
+    \CvSubHeadingListEnd
+%
+%-----------------------------------------
+%--------PROGRAMMING SKILLS------------
+\section{Programming Skills}
+ \CvSubHeadingListStart
+   \item{
+     \textbf{Languages}{: Python, R, C++, C, C\#, Java, Javascript, PHP, HTML, CSS, JQuery, SQL, VHDL}}
+   \item{
+    \textbf{Technologies}{: OpenGL, GIT, Polarion, JIRA, TensorFlow}
+   }  
+ \CvSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}
