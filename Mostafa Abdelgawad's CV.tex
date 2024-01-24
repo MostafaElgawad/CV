@@ -20,6 +20,9 @@
 \usepackage{tabu}
 \usepackage{multirow}
 \usepackage{enumitem}
+\usepackage{lipsum}
+\usepackage{ulem}
+
 
 
 
@@ -40,7 +43,7 @@
 
 \raggedbottom
 \raggedright
-\setlength{\tabcolsep}{0in}
+\setlength{\tabcolsep}{0pt}
 
 % Sections formatting
 \titleformat{\section}{
@@ -63,11 +66,27 @@
     \end{tabular*}\vspace{-5pt}
 }
 
+\newcommand{\CvSubheadingWithDocument}[5]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} \textit{\small#2} & #3 \\
+      \textit{\small#4} & \textit{\small #5} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
 \newcommand{\CvSubheadingWithoutTitle}[3]{
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
     \multirow{2}{*}{\textbf{#1}} & #2 \\
      & \textit{\small #3} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\CvSubheadingWithdocumentWithoutTitle}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \multirow{2}{*}{\textbf{#1} \textit{\small#2}} & #3 \\
+     & \textit{\small #4} \\
     \end{tabular*}\vspace{-5pt}
 }
 
@@ -88,6 +107,8 @@
 \newcommand{\EndList}{\end{itemize}}
 \newcommand{\CvItemListStart}{\begin{itemize}}
 \newcommand{\CvItemListEnd}{\end{itemize}\vspace{-5pt}}
+\titleformat{\section}
+  {\normalfont\large\bfseries\centering}{}{0pt}{}[\titlerule]
 
 %-------------------------------------------
 %--------------------------------------------------------------------------------
@@ -172,19 +193,9 @@
 \end{center}
 
 
-%-----------EDUCATION-----------------
-\section{Education}
-  \CvSubHeadingListStart
-    \CvSubheading
-      {\href{https://eng.cu.edu.eg/en/}{Cairo University, Faculty of Engineering}}{Giza, Egypt}
-      {Bachelor of Engineering in Communications and Computer;  GPA: 3.31}{Sep. 2015 -- May. 2020}
-  \CvSubHeadingListEnd
-
-
 %-----------EXPERIENCE-----------------
 \section{Work Experience}
   \CvSubHeadingListStart
-
     \CvSubheading
       {APTIV (EJAD BOT program)}{Free Zone, Naser City}
       {Embedded Systems Software Engineer}{Oct 2022 - Present}
@@ -198,8 +209,9 @@
           \EndList}
       \CvItemListEnd
 
-    \CvSubheading
-      {Cairo University, Faculty of Engineering}{Giza, Egypt}
+    \CvSubheadingWithDocument
+    {Cairo University, Faculty of Engineering}
+    {\href{https://drive.google.com/file/d/1gRr4zVzxWEZGYo3JWWWtWYeV49-7pnhz/view?usp=sharing}{(experience letter)}}{Giza, Egypt}
       {Teaching assistant}{Oct 2021 - Jun 2022}
       \CvItemListStart
         \CvItem{Programming Techniques course}
@@ -228,6 +240,19 @@
   \CvSubHeadingListEnd
 
 
+%-----------EDUCATION-----------------
+\section{Education}
+  \CvSubHeadingListStart
+    \CvSubheadingWithDocument
+    {Cairo University, Faculty of Engineering}
+    {\href{https://drive.google.com/file/d/1cf0mTu1IprrYY0R2aeAKrCps3ZZeCanm/view?usp=sharing}{(certificate)}}{Giza, Egypt}
+      {Bachelor of Engineering in Communications and Computer;  GPA: 3.31}{Sep 2015 - May 2020}
+    \CvSubheading
+    {\href{https://www.h-brs.de/en/inf/study/master/autonomous-systems}{Bonn-Rhein-Sieg University of Applied Sciences}}{Bonn, Germany}
+    {Master of Science in Autonomous Systems; In Progress} {Apr 2024 - In Progress}
+  \CvSubHeadingListEnd
+
+  
 %-----------PROJECTS-----------------
 \section{Academic Projects}
   \CvSubHeadingListStart
@@ -263,8 +288,9 @@
 %
 \section{Additional Experience and Awards}
     \CvSubHeadingListStart
-        \CvSubheadingWithoutTitle
-        {AUTOSAR MasterClass}{\href{https://sprints.ai/}{Sprints.ai}}
+        \CvSubheadingWithdocumentWithoutTitle
+        {AUTOSAR MasterClass}
+        {\href{https://drive.google.com/file/d/11J9nzdQyJXEV8ALsv8E3fltjN7ahh1VI/view?usp=sharing}{(certificate)}}{\href{https://sprints.ai/}{Sprints.ai}}
         {Jul 2023 - Sep 2023}
         {\begin{itemize}[topsep = 2pt, itemsep = -2pt]
           \item Learned the layered architecture of AUTOSAR and BSW stacks with a deep dive into COMM, Diagnostics, System \& OS, Memory, and Wdg stacks.
@@ -288,23 +314,20 @@
                     \item Implemented a Security System consisting of two ECUs, HMI and control ECU, responsible for interfacing with the user and system operations \& control.
                 \end{itemize} 
             \end{itemize}
-    \CvSubSubheadingWithoutTitleAndDate
-    {B1 German Certificate} {Goethe Ins.}
-    \CvSubSubheadingWithoutTitleAndDate
-    {C1 IELTS Certificate} { IDP Education}
+    \CvSubheadingWithdocumentWithoutTitle
+    {B1 German}
+    {\href{https://drive.google.com/file/d/1ZqeyzqQ8irMl0aZzunjAWck2Ln38SIRa/view?usp=sharing}{(certificate)}} {Goethe Ins.} {2020}
+    \CvSubheadingWithdocumentWithoutTitle
+    {C1 IELTS} 
+    {\href{https://drive.google.com/file/d/1_vvIMufJvqv6IeRRYlNu3F9-kVY1O3jM/view?usp=sharing}{(certificate)}} { IDP Education} {2023}
     \CvSubHeadingListEnd
 %
 %-----------------------------------------
 %--------PROGRAMMING SKILLS------------
-\section{Programming Skills}
- \CvSubHeadingListStart
-   \item{
-     \textbf{Languages}{: Python, R, C++, C, C\#, Java, Javascript, PHP, HTML, CSS, JQuery, SQL, VHDL}}
-   \item{
-    \textbf{Technologies}{: AUTOSAR, GERRIT, GIT, Polarion, JIRA, TensorFlow}
-   }  
- \CvSubHeadingListEnd
+\section{Skills}
+\begin{itemize}
+    \item Python \textbar\ R \textbar\ C++ \textbar\ C \textbar\ C\# \textbar\ Java \textbar\ Javascript \textbar\ PHP \textbar\ HTML \textbar\ CSS \textbar\ JQuery \textbar\ SQL \textbar\ VHDL \textbar\ UNIX \textbar\ OOP
+    \item AUTOSAR \textbar\ Git \textbar\ Polarion \textbar\ Jira \textbar\ TensorFlow \textbar\ CI/CD
+\end{itemize}
 
-
-%-------------------------------------------
 \end{document}
